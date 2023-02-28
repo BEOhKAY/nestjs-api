@@ -31,7 +31,7 @@ export class AuthService {
     return { user, token };
   }
 
-  async patientSignUp(dto: patientSignUpDto) {
+  async patientSignUp(dto: patientSignUpDto): Promise<void> {
     const isUser = await this.prisma.user.findFirst({
       where: { email: dto.email },
     });
@@ -65,7 +65,7 @@ export class AuthService {
     }
   }
 
-  async doctorSignUp(dto: doctorSignUpDto) {
+  async doctorSignUp(dto: doctorSignUpDto): Promise<void> {
     const isUser = await this.prisma.user.findFirst({
       where: { email: dto.email },
     });
@@ -93,7 +93,7 @@ export class AuthService {
     }
   }
 
-  async userLogin(dto: LoginDto) {
+  async userLogin(dto: LoginDto): Promise<{ user: User; token: string }> {
     const user = await this.prisma.user.findFirst({
       where: { email: dto.email },
     });

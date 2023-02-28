@@ -42,26 +42,28 @@ model Doctor {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  role      String
-  password  String
-  username  String
-  fullNames String
-  email     String
-  gender    String
-  phone     Int
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  Doctor    Doctor[]
-  Patient   Patient[]
+  id           Int            @id @default(autoincrement())
+  role         String
+  password     String
+  username     String
+  fullNames    String
+  email        String
+  gender       String
+  phone        Int
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  Doctor       Doctor[]
+  Patient      Patient[]
+  Appointments Appointments[]
 }
 
 model Appointments {
   id             Int      @id @default(autoincrement())
-  patientId      Int
+  userId         Int
   doctorId       Int
   scheduleDate   DateTime
   description    String
   approvalStatus Boolean  @default(false)
-  message        String
+  message        String?
+  user           User     @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }

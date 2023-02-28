@@ -6,6 +6,7 @@ import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { PatientModule } from './patient/patient.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { PrismaModule } from './prisma/prisma.module';
     PrismaModule,
     DoctorModule,
     ConfigModule.forRoot({ isGlobal: true }),
+    PatientModule,
   ],
   providers: [
     {
