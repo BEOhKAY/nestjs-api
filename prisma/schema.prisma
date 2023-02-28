@@ -43,7 +43,6 @@ model Doctor {
 
 model User {
   id        Int       @id @default(autoincrement())
-  userId    Int
   role      String
   password  String
   username  String
