@@ -58,4 +58,12 @@ export class PatientController {
     const result = await this.patient.getAppointments(user);
     return new GenericResponse('all my appointments', result);
   }
+
+  @ApiOkResponse({ description: 'all doctors fetched' })
+  @ApiOperation({ summary: 'see all doctors' })
+  @Get('all-doctors')
+  async getAllDoctors() {
+    const result = await this.patient.seeAllDoctors();
+    return new GenericResponse('all doctors', result);
+  }
 }
