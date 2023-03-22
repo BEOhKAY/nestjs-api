@@ -62,7 +62,7 @@ export class DoctorController {
   @ApiOkResponse({ description: 'doc availability ' })
   @Get('user-availability')
   @ApiQuery({ name: 'doctorId', required: true, description: 'doctor id' })
-  async seeDocAvailability(@Query('doctorId', ParseIntPipe) id: number) {
+  async seeDocAvailability(@Query('doctorId') id: string) {
     const result = await this.doctorService.seeDocShedule(id);
     return new GenericResponse('doc availability ', result);
   }
