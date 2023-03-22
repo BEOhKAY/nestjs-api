@@ -12,7 +12,7 @@ export class PatientService {
   async sheduleAppointments(
     user: User,
     dto: appointmentDto,
-    doctorId: number,
+    doctorId: string,
   ): Promise<void> {
     const appointment = await this.prisma.appointments.create({
       data: {

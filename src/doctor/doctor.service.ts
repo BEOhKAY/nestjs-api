@@ -67,7 +67,7 @@ export class DoctorService {
     }
   }
 
-  async seeDocShedule(id: number): Promise<doctorAvailabity[]> {
+  async seeDocShedule(id: string): Promise<doctorAvailabity[]> {
     const todayMonth = getMonth(new Date());
 
     const Avaliability: doctorAvailabity[] =
